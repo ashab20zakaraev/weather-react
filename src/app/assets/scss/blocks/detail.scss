@@ -1,0 +1,74 @@
+.detail__weather {
+  position: relative;
+  z-index: 2;
+
+  &:before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+
+    width: 60%;
+    height: 20rem;
+
+    background: url("@/assets/images/cloud.png") center no-repeat;
+
+    @include breakpoint($extra-pc) {
+      background-position: left;
+    }
+  }
+}
+
+.detail__list {
+  padding: 0.6rem;
+
+  & > *:not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+}
+
+.detail__item {
+  display: flex;
+  align-items: center;
+}
+
+.detail__img {
+  width: 3.8rem;
+  height: 3.8rem;
+
+  box-shadow: 0.1rem 0.4rem 1rem -0.1rem rgba($blue, 0.2);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoint($mobile) {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.detail__name {
+  color: $text-gray;
+
+  margin: 0 2rem;
+
+  @include breakpoint($mobile) {
+    display: none;
+  }
+}
+
+.detail__info {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: $black;
+
+  @include breakpoint($mobile) {
+    width: 100%;
+    margin-left: 2rem;
+    text-align: center;
+  }
+}

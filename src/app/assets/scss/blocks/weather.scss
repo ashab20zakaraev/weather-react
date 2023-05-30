@@ -1,0 +1,159 @@
+.weather {
+  padding: 3rem 0;
+}
+
+.weather__title {
+  margin-top: 5rem;
+  font-weight: 500;
+  font-size: 3.5rem;
+  color: #04091e;
+}
+
+.weather__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include breakpoint($extra-pc) {
+    flex-direction: column;
+  }
+}
+
+.weather__today {
+  flex: 0 1 33.3333333%;
+
+  @include breakpoint($extra-pc) {
+    width: 100%;
+  }
+
+  &--posrelative {
+    position: relative;
+    z-index: 10;
+  }
+
+  &--click {
+    display: block;
+
+    cursor: pointer;
+
+    transition: box-shadow 0.1s linear;
+
+    &:hover .weather-card__del {
+      opacity: 1;
+    }
+
+    &:hover {
+      box-shadow: 0.2rem 0.5rem 2.5rem -0.3rem rgba($grey, 0.3);
+    }
+
+    &:active {
+      box-shadow: 0.1rem 0.4rem 2.4rem -0.2rem rgba($grey, 0.2);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.weather__block {
+  padding: 2rem;
+  box-shadow: 0.1rem 0.2rem 1.5rem -0.2rem rgba($grey, 0.25);
+  border: 1px solid rgba($grey, 0.15);
+  border-radius: 0.7rem;
+
+  background-color: $white;
+
+  &--blue {
+    background-color: rgba($blue, 0.1);
+    border-radius: 1rem;
+    padding: 1.1rem;
+    box-shadow: 0.1rem 0.4rem 1rem -0.1rem rgba($blue, 0.2);
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
+}
+
+.weather__detail {
+  flex: 0 1 62.5%;
+
+  @include breakpoint($extra-pc) {
+    width: 100%;
+  }
+}
+
+.weather-card__del {
+  width: 2rem;
+  height: 2rem;
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  opacity: 0;
+
+  transition: opacity 0.1s ease-in-out;
+
+  &:hover img {
+    opacity: 1;
+  }
+
+  &:active {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0.5;
+
+    transition: opacity 0.1s ease-in-out;
+  }
+}
+
+.weather__active-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  margin-bottom: 2rem;
+}
+
+.weather__hours-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    -webkit-transition: border 0.2s linear;
+
+    transition: border 0.2s linear;
+
+    @media (any-hover: hover) {
+      background-color: lighten(#2b2b2b, 25);
+    }
+  }
+}
+
+.weather__item {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  @include no-select;
+}

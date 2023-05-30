@@ -1,0 +1,31 @@
+@import "vendor/reset";
+@import "vars";
+@import "vendor/mixins";
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: $black;
+
+  background-color: $white;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+// Blocks
+@import "blocks/container";
+@import "blocks/weather";
+@import "blocks/today";
+@import "blocks/detail";
+@import "blocks/cards";
+@import "blocks/list";
+@import "blocks/item";
+@import "blocks/weather-grid";
+@import "blocks/helpers";
