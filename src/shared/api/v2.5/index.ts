@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import instance from "../instance";
 
-const API_KEY = import.meta.env.VIRE_API_KEY
+const API_KEY = import.meta.env.VITE_API_KEY
 const LANG = "ru"
 
 const ENDPOINTS = {
@@ -10,7 +10,8 @@ const ENDPOINTS = {
 }
 
 const loadWeather = (cityName: string): Promise<any> => {
-  return instance.get(`${ENDPOINTS.weather}?lang=${LANG}&appid=${API_KEY}&units=metric&q=${cityName}`).then((response) => response.data)
+  return instance.get(`${ENDPOINTS.weather}?lang=${LANG}&appid=${API_KEY}&units=metric&q=${cityName}`)
+    .then((response) => response.data)
 }
 
 const loadWeatherDailyInfo = (coords: { lat: number, lon: number }): Promise<any> => {
@@ -20,5 +21,5 @@ const loadWeatherDailyInfo = (coords: { lat: number, lon: number }): Promise<any
 
 export {
   loadWeather,
-  loadWeatherDailyInfo
+  loadWeatherDailyInfo,
 }

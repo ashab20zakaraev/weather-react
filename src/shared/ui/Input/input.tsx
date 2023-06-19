@@ -6,7 +6,7 @@ interface IInputProps {
   placeholder?: string
 }
 
-const Input: React.FC = (props: IInputProps) => {
+const Input: React.FC<IInputProps> = (props) => {
   return (
     <input
       type={props.type}
