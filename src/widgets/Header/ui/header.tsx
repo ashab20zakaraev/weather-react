@@ -33,7 +33,7 @@ const Header: React.FC = () => {
           <img src={themeIcom} alt="theme" />
         </button>
 
-        <form className="header__select" >
+        <div className="header__select" >
           <Input
             placeholder="Выбрать город"
             style={{fontSize: 16}}
@@ -44,7 +44,7 @@ const Header: React.FC = () => {
           <IconButton size="large" onClick={handleSearchCity}>
             <SearchIcon fontSize="large" />
           </IconButton>
-        </form>
+        </div>
       </div>
     </header>
   )
