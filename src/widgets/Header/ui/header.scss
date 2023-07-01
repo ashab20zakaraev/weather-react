@@ -18,17 +18,14 @@
   }
 }
 
+.header__select {
+  font-size: 1.6rem;
+}
+
 .header__actions {
   display: flex;
   align-items: center;
-
-  & > *:not(:last-child) {
-    margin-right: 2.5rem;
-
-    @include breakpoint($tablet) {
-      margin-right: 1.5rem;
-    }
-  }
+  grid-gap: 2rem;
 
   @include breakpoint($tablet) {
     width: 70%;

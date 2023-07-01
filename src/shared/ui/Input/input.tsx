@@ -1,9 +1,10 @@
 import "./input.scss"
 
 interface IInputProps {
-  value?: string | number
   type?: string
   placeholder?: string
+  value?: string
+  onChange()
 }
 
 const Input: React.FC<IInputProps> = (props) => {
@@ -13,6 +14,7 @@ const Input: React.FC<IInputProps> = (props) => {
       placeholder={props.placeholder}
       value={props.value}
       className="input"
+      onInput={props.onChange}
     />
   )
 }
