@@ -1,10 +1,10 @@
-import { IWeatherTicket } from "@/shared/types"
+import type { IWeatherTicket } from "@/entities/WeatherTicket"
 
 import { IconButton } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import "./weater-ticket.scss"
 
-import { icons } from "../lib/contants"
+import { icons } from "../constants"
 
 interface IWeatherTicketProps {
   ticket: IWeatherTicket
