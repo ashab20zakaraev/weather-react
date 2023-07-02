@@ -1,0 +1,92 @@
+.ticket-weather {
+  padding: 2rem;
+  border: 1px solid rgba($grey, 0.3);
+  border-radius: 0.7rem;
+  background-color: $white;
+
+  cursor: pointer;
+
+  position: relative;
+  z-index: 2;
+
+  transition: box-shadow .1s linear;
+
+  @media (any-hover: hover) {
+    &:hover {
+      box-shadow: .1rem .1rem .4rem rgba($blue, .1);
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__temp {
+    width: 100%;
+    
+    span {
+      display: block;
+      
+      font-weight: 500;
+      @include adaptiv-font(70, 55);
+      color: $blue;
+      text-align: center;
+
+      pointer-events: none;
+    }
+  }
+
+  &__img {
+    width: 8rem;
+    height: 8rem;
+    
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    z-index: -1;
+
+    opacity: 0.4;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @include breakpoint($mobile) {
+      width: 9rem;
+      height: 9rem;
+    }
+  }
+
+  &__footer {
+    margin-top: 2rem;
+
+    li {
+      color: $text-gray;
+      @include adaptiv-font(18, 14);
+    }
+
+    & > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+  }
+
+  &__city {
+    width: 100%;
+
+    display: block;
+
+    font-weight: 500;
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 1rem;  
+    right: 1rem;
+  }
+}

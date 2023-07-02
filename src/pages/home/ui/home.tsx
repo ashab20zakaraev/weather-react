@@ -5,7 +5,7 @@ const Home: React.FC = () => {
     <div className="home">
       <h1 className="weather__title">Добавьте город</h1>
 
-      <div className="grid">
+      <div className="weather__list">
         <WeatherTicketList />
       </div>
     </div>

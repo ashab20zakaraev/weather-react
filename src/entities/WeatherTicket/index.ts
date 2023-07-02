@@ -1,1 +1,5 @@
-export * from "./ui/weather-ticket"
+import WeatherTicket from "./ui/weather-ticket"
+
+export {
+  WeatherTicket
+}
