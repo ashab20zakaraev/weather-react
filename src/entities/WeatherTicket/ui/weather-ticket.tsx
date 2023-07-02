@@ -8,19 +8,20 @@ import { icons } from "../lib/contants"
 
 interface IWeatherTicketProps {
   ticket: IWeatherTicket
+  onRemoveTicket: (ticketId: number) => void
 }
 
-const WeatherTicket: React.FC<IWeatherTicketProps> = ({ ticket }) => {
+const WeatherTicket: React.FC<IWeatherTicketProps> = ({ ticket, onRemoveTicket }) => {
   const generateWeatherIcon = (ticketWeather) => {
     const { icon } = ticketWeather.at(0)
 
     return icons[icon]
   }
 
-  const handleClick = () => {
-    console.log(ticket.id)
+  const handleRemoveTicket = () => {
+    onRemoveTicket(ticket.id)
   }
-  
+
   const temp = Math.floor(ticket.main.temp)
   const icon = generateWeatherIcon(ticket.weather)
 
@@ -42,7 +43,7 @@ const WeatherTicket: React.FC<IWeatherTicketProps> = ({ ticket }) => {
         </li>
       </ul>
 
-      <div className="ticket-weather__close" onClick={handleClick}>
+      <div className="ticket-weather__close" onClick={handleRemoveTicket}>
         <IconButton size="small">
           <CloseIcon fontSize="large" />
         </IconButton>

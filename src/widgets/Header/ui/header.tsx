@@ -11,7 +11,7 @@ const { Logo } = UI
 const { loadWeather } = Api
 
 import "./header.scss"
-import themeIcom from "@/app/assets/images/theme.svg"
+// import themeIcom from "@/app/assets/images/theme.svg"
 
 const Header: React.FC = () => {
   const [ searchValue, setSearchValue ] = useState("")
@@ -36,9 +36,9 @@ const Header: React.FC = () => {
       <Logo />
 
       <div className="header__actions">
-        <button className="btn__theme" >
+        {/* <button className="btn__theme" >
           <img src={themeIcom} alt="theme" />
-        </button>
+        </button> */}
 
         <div className="header__select" >
           <Input

@@ -10,14 +10,16 @@ interface IWeatherTicketStore {
     status: boolean,
     message: string
   } | null
-  setWeatherTicket: ( WeatherTicket: IWeatherTicket ) => void
+  setWeatherTicket: ( weatherTicket: IWeatherTicket ) => void,
+  removeWeatherTicket: (weatherTicketId: number) => void
 }
 
 const useWeatherTicketStore = create<IWeatherTicketStore>()(devtools((set) => ({
   loading: false,
   error: null,
   weatherTickets: [],
-  setWeatherTicket: (weatherTicket) => set((state) => ({ weatherTickets: [...state.weatherTickets, weatherTicket] }))
+  setWeatherTicket: (weatherTicket) => set((state) => ({ weatherTickets: [...state.weatherTickets, weatherTicket] })),
+  removeWeatherTicket: (weatherTicketId) => set((state) => ({ weatherTickets: state.weatherTickets.filter((ticket) => ticket.id !== weatherTicketId) }))
 })))
 
 export default useWeatherTicketStore
