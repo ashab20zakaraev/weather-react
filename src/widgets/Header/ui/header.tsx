@@ -27,10 +27,6 @@ const Header: React.FC = () => {
       <Logo />
 
       <div className="header__actions">
-        {/* <button className="btn__theme" >
-          <img src={themeIcom} alt="theme" />
-        </button> */}
-
         <div className="header__select" >
           <Input
             placeholder="Выбрать город"

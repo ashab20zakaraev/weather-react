@@ -3,9 +3,13 @@ import { CircularProgress } from "@mui/material"
 import { useWeatherTicketStore } from ".."
 
 const WeatherTicketList: React.FC = () => {
-  const tickets = useWeatherTicketStore((state) => state.weatherTickets)
-  const loading = useWeatherTicketStore((state) => state.loading)
-  const removeTicket = useWeatherTicketStore((state) => state.removeWeatherTicket)
+  const { tickets, loading, removeTicket }  = useWeatherTicketStore(
+    (state) => ({
+      tickets: state.weatherTickets,
+      loading: state.loading,
+      removeTicket: state.removeWeatherTicket
+    })
+  )
 
   const handleRemoveTicket = (ticketId: number): void => {
     removeTicket(ticketId)
