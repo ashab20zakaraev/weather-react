@@ -13,7 +13,7 @@
     width: 60%;
     height: 20rem;
 
-    background: url("@/assets/images/cloud.png") center no-repeat;
+    background: url("@/app/assets/images/cloud.png") center no-repeat;
 
     @include breakpoint($extra-pc) {
       background-position: left;

@@ -24,7 +24,7 @@ const WeatherDetail: React.FC = () => {
     <div className="weather__inner">
       <WeatherMainInfo currentWeather={cityInfo} />
 
-      <WeatherDetailInfo />
+      <WeatherDetailInfo currentWeather={cityInfo} />
     </div>
   )
 }
