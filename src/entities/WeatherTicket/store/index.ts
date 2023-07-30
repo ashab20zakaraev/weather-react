@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { create } from "zustand"
 import { devtools, persist } from "zustand/middleware"
-import type { IWeatherTicket } from "@/entities/WeatherTicket"
+import type { IWeatherTicket } from "@/shared"
 import { Api } from "@/shared"
 
 const { loadWeather } = Api

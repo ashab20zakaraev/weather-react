@@ -1,6 +1,7 @@
 export interface IWeatherTicket {
   name: string
   id: number
+  dt: number
   main: {
     feels_like: number
     humidity: number

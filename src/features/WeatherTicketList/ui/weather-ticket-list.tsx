@@ -1,6 +1,6 @@
 import { WeatherTicket } from "@/entities/WeatherTicket"
 import { CircularProgress } from "@mui/material"
-import { useWeatherTicketStore } from ".."
+import { useWeatherTicketStore } from "@/entities/WeatherTicket"
 
 const WeatherTicketList: React.FC = () => {
   const { tickets, loading, removeTicket }  = useWeatherTicketStore(

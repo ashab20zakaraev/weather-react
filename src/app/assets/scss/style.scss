@@ -21,6 +21,22 @@ body {
   }
 }
 
+.placeholder {
+  height: 250px;
+
+  background-color: #bdcbde;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 // Blocks
 @import "blocks/container";
 @import "blocks/weather";

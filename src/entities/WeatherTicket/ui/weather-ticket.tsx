@@ -1,24 +1,23 @@
-import type { IWeatherTicket } from "@/entities/WeatherTicket"
+import { NavLink } from "react-router-dom"
+import { Lib } from "@/shared"
+import type { IWeatherTicket } from "@/shared"
 
 import { IconButton } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import "./weater-ticket.scss"
-
-import { icons } from "../constants"
 
 interface IWeatherTicketProps {
   ticket: IWeatherTicket
   onRemoveTicket: (ticketId: number) => void
 }
 
+const { generateWeatherIcon } = Lib
+
 const WeatherTicket: React.FC<IWeatherTicketProps> = ({ ticket, onRemoveTicket }) => {
-  const generateWeatherIcon = (ticketWeather) => {
-    const { icon } = ticketWeather.at(0)
 
-    return icons[icon]
-  }
+  const handleRemoveTicket = (event) => {
+    event.preventDefault()
 
-  const handleRemoveTicket = () => {
     onRemoveTicket(ticket.id)
   }
 
@@ -26,29 +25,31 @@ const WeatherTicket: React.FC<IWeatherTicketProps> = ({ ticket, onRemoveTicket }
   const icon = generateWeatherIcon(ticket.weather)
 
   return (
-    <div className="weather__ticket ticket-weather">
-      <div className="ticket-weather__header">
-        <div className="ticket-weather__temp">
-          <span>{temp}&deg;</span>
+    <NavLink to={`/detail/${ticket.id}`}>
+      <div className="weather__ticket ticket-weather">
+        <div className="ticket-weather__header">
+          <div className="ticket-weather__temp">
+            <span>{temp}&deg;</span>
+          </div>
+
+          <div className="ticket-weather__img">
+            <img src={icon} alt="icon" />
+          </div>
         </div>
 
-        <div className="ticket-weather__img">
-          <img src={icon} alt="icon" />
+        <ul className="ticket-weather__footer">
+          <li>
+            <span className="ticket-weather__city">{ ticket.name }</span>
+          </li>
+        </ul>
+
+        <div className="ticket-weather__close" onClick={handleRemoveTicket}>
+          <IconButton size="small">
+            <CloseIcon fontSize="large" />
+          </IconButton>
         </div>
       </div>
-
-      <ul className="ticket-weather__footer">
-        <li>
-          <span className="ticket-weather__city">{ ticket.name }</span>
-        </li>
-      </ul>
-
-      <div className="ticket-weather__close" onClick={handleRemoveTicket}>
-        <IconButton size="small">
-          <CloseIcon fontSize="large" />
-        </IconButton>
-      </div>
-    </div>
+    </NavLink>
   )
 }
 

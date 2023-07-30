@@ -4,7 +4,7 @@ import { UI } from "@/shared"
 import { Input, IconButton } from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search"
 
-import useWeatherTicketStore from "@/features/WeatherTicketList/store"
+import { useWeatherTicketStore } from "@/entities/WeatherTicket"
 
 const { Logo } = UI
 
