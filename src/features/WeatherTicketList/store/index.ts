@@ -17,6 +17,8 @@ interface IWeatherTicketStore {
   loadWeatherTicket: (cityName: string) => Promise<void>
   setWeatherTicket: ( weatherTicket: IWeatherTicket ) => void
   removeWeatherTicket: (weatherTicketId: number) => void
+  hasCity: (cityName: string) => boolean  
+  initTickets: () => Promise<void>
 }
 
 const useWeatherTicketStore = create<IWeatherTicketStore>()(
@@ -25,11 +27,15 @@ const useWeatherTicketStore = create<IWeatherTicketStore>()(
       loading: false as boolean,
       error: null,
       weatherTickets: [],
-      setLoading: (status) => {
-        set({ loading: status })
+      setLoading: (status) => set({ loading: status }),
+      initTickets: async () => {
+        const newWeatherTickets = get().weatherTickets.map((ticket) => loadWeather(ticket.name))
+        const result = await Promise.all(newWeatherTickets)
+        set({ weatherTickets: result })
       },
       setWeatherTicket: (weatherTicket) => set((state) => ({ weatherTickets: [...state.weatherTickets, weatherTicket] })),
       removeWeatherTicket: (weatherTicketId) => set((state) => ({ weatherTickets: state.weatherTickets.filter((ticket) => ticket.id !== weatherTicketId) })),
+      hasCity: (cityName) => get().weatherTickets.some((city) => city.name.toUpperCase() === cityName.toUpperCase()),
       loadWeatherTicket: async (cityName) => {
         set({ loading: true })
         try {
@@ -43,7 +49,7 @@ const useWeatherTicketStore = create<IWeatherTicketStore>()(
         }
       },
     }), {
-      name: "weather-ticket" 
+      name: "weather-ticket",
     })
   )
 )
