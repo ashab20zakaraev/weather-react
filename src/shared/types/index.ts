@@ -20,3 +20,9 @@ export interface IWeatherTicket {
   }
   weather: Array<{ description: string, icon: string }>
 }
+
+export interface IMeteoItem {
+  icon?: string
+  title?: string
+  body?: string
+}

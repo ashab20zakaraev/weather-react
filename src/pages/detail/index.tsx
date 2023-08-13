@@ -1,4 +1,4 @@
-import { WeatherDetail } from "@/features/WeatherDetail"
+import { WeatherDetail } from "@/widgets/WeatherDetail"
 
 const Detail: React.FC = () => {
 

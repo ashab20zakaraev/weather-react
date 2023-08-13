@@ -1,11 +1,10 @@
 import { useMemo } from "react"
-import { IWeatherTicket, Lib } from "@/shared"
+import { formatWeekly, generateWeatherIcon } from "@/entities/Weather"
+import type { IWeatherTicket } from "@/shared/types"
 
 interface IWeatherMainInfoProps {
   currentWeather?: IWeatherTicket | null
 }
-
-const { formatWeekly, generateWeatherIcon } = Lib
 
 const WeatherMainInfo: React.FC<IWeatherMainInfoProps> = ({ currentWeather }) => {
   const temp = useMemo(() => Math.floor(currentWeather?.main?.temp as number), [currentWeather?.main?.temp])

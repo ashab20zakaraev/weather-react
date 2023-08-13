@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
-import { Lib } from "@/shared"
-import type { IWeatherTicket } from "@/shared"
+import { generateWeatherIcon } from "../../lib"
+import type { IWeatherTicket } from "@/shared/types"
 
 import { IconButton } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
@@ -10,8 +10,6 @@ interface IWeatherTicketProps {
   ticket: IWeatherTicket
   onRemoveTicket: (ticketId: number) => void
 }
-
-const { generateWeatherIcon } = Lib
 
 const WeatherTicket: React.FC<IWeatherTicketProps> = ({ ticket, onRemoveTicket }) => {
 

@@ -1,10 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react"
 import { UI } from "@/shared"
 import { Input, IconButton } from "@mui/material"
 import SearchIcon from "@mui/icons-material/Search"
 
-import { useWeatherTicketStore } from "@/entities/WeatherTicket"
+import { useWeatherTicketStore } from "@/features/WeatherTicketList"
 
 const { Logo } = UI
 

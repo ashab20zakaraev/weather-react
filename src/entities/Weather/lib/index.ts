@@ -1,4 +1,4 @@
-import { icons } from "../constants"
+import { icons } from "@/shared/constants"
 
 const TODAY = "Сегодня"
 const TOMORROW = "Завтра"

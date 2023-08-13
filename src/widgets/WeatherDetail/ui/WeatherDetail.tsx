@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { useWeatherTicketStore } from "@/features/WeatherTicketList"
+import type { IWeatherTicket } from "@/shared/types"
 
-import { IWeatherTicket, useWeatherTicketStore } from "@/entities/WeatherTicket"
-
-import { WeatherDetailInfo, WeatherMainInfo } from "@/entities/WeatherInfo"
+import { WeatherMainInfo } from "@/features/WeatherMainInfo"
+import { MeteoList, generateMeteoItem } from "@/features/MeteoList"
 
 const WeatherDetail: React.FC = () => {
   const [ cityInfo, setCityInfo ] = useState<IWeatherTicket | null>(null)
@@ -24,7 +25,7 @@ const WeatherDetail: React.FC = () => {
     <div className="weather__inner">
       <WeatherMainInfo currentWeather={cityInfo} />
 
-      <WeatherDetailInfo currentWeather={cityInfo} />
+      <MeteoList items={generateMeteoItem(cityInfo)} />
     </div>
   )
 }
