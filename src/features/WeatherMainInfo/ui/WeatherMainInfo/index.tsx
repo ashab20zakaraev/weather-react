@@ -1,9 +1,9 @@
 import { useMemo } from "react"
 import { formatWeekly, generateWeatherIcon } from "@/entities/Weather"
-import type { IWeatherTicket } from "@/shared/types"
+import type { IWeather } from "@/shared/types"
 
 interface IWeatherMainInfoProps {
-  currentWeather?: IWeatherTicket | null
+  currentWeather?: IWeather | null
 }
 
 const WeatherMainInfo: React.FC<IWeatherMainInfoProps> = ({ currentWeather }) => {

@@ -1,4 +1,4 @@
-import { IWeatherTicket, IMeteoItem } from "@/shared/types"
+import { IWeather, IMeteoItem } from "@/shared/types"
 
 import temp from "@/app/assets/images/icons/1.svg"
 import press from "@/app/assets/images/icons/2.svg"
@@ -7,7 +7,7 @@ import wind from "@/app/assets/images/icons/4.svg"
 
 const COEFF_FOR_CALC_PRESSURE = 1.333
 
-export const generateMeteoItem = (weather: IWeatherTicket | null): Array<IMeteoItem> => {
+export const generateMeteoItem = (weather: IWeather | null): Array<IMeteoItem> => {
   if (!weather) return []
 
   const getTemp = () => Math.floor(weather.main.temp)

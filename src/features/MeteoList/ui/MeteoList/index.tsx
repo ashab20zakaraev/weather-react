@@ -24,6 +24,4 @@ const MeteoList: React.FC<IMeteoListProps> = ({ items }) => {
   )
 }
 
-// °
-
 export default MeteoList

@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom"
 import { generateWeatherIcon } from "../../lib"
-import type { IWeatherTicket } from "@/shared/types"
+import type { IWeather } from "@/shared/types"
 
 import { IconButton } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import "./weater-ticket.scss"
 
-interface IWeatherTicketProps {
-  ticket: IWeatherTicket
+interface IWeatherProps {
+  ticket: IWeather
   onRemoveTicket: (ticketId: number) => void
 }
 
-const WeatherTicket: React.FC<IWeatherTicketProps> = ({ ticket, onRemoveTicket }) => {
+const WeatherTicket: React.FC<IWeatherProps> = ({ ticket, onRemoveTicket }) => {
 
   const handleRemoveTicket = (event) => {
     event.preventDefault()

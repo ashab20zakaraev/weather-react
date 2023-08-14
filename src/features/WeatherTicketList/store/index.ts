@@ -1,27 +1,27 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { create } from "zustand"
 import { devtools, persist } from "zustand/middleware"
-import type { IWeatherTicket } from "@/shared/types"
+import type { IWeather } from "@/shared/types"
 import { Api } from "@/shared"
 
 const { loadWeather } = Api
 
-interface IWeatherTicketStore {
+interface IWeatherStore {
   loading: boolean
-  weatherTickets: Array<IWeatherTicket>
+  weatherTickets: Array<IWeather>
   error: {
     status: boolean,
     message: string
   } | null
   setLoading: (status: boolean) => void
   loadWeatherTicket: (cityName: string) => Promise<void>
-  setWeatherTicket: ( weatherTicket: IWeatherTicket ) => void
+  setWeatherTicket: ( weatherTicket: IWeather ) => void
   removeWeatherTicket: (weatherTicketId: number) => void
   hasCity: (cityName: string) => boolean  
   initTickets: () => Promise<void>
 }
 
-const useWeatherTicketStore = create<IWeatherTicketStore>()(
+const useWeatherTicketStore = create<IWeatherStore>()(
   devtools(
     persist((set, get) => ({
       loading: false as boolean,

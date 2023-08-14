@@ -6,7 +6,7 @@ const LANG = "ru"
 
 const ENDPOINTS = {
   weather: "/data/2.5/weather",
-  dailyInfo: "/data/2.5/oncall"
+  dailyInfo: "/data/2.5/onecall"
 }
 
 const loadWeather = (cityName: string): Promise<any> => {
@@ -16,7 +16,11 @@ const loadWeather = (cityName: string): Promise<any> => {
 
 const loadWeatherDailyInfo = (coords: { lat: number, lon: number }): Promise<any> => {
   return instance.get(`${ENDPOINTS.dailyInfo}?lang=${LANG}&appid=${API_KEY}&units=metric&lat=${coords.lat}&lon=${coords.lon}&exclude=minutely,alerts`)
-  .then((response) => response.data)
+  .then((response) => {
+    response.data.daily.pop()
+  
+    return response.data
+  })
 }
 
 export {

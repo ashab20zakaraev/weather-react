@@ -1,4 +1,4 @@
-import  WeatherMainInfo from "./ui/WeatherMainInfo"
+import WeatherMainInfo from "./ui/WeatherMainInfo"
 
 export {
   WeatherMainInfo,
