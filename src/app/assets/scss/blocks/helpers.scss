@@ -26,6 +26,18 @@
   align-items: center;
 }
 
+.gap-1 {
+  grid-gap: 1rem;
+}
+
+.gap-2 {
+  grid-gap: 2rem;
+}
+
+.gap-3 {
+  grid-gap: 3rem;
+}
+
 .fw-w {
   flex-wrap: wrap;
 }

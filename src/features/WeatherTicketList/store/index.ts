@@ -2,6 +2,7 @@
 import { create } from "zustand"
 import { devtools, persist } from "zustand/middleware"
 import type { IWeather } from "@/shared/types"
+import { AxiosError } from "axios"
 import { Api } from "@/shared"
 
 const { loadWeather } = Api
@@ -9,10 +10,6 @@ const { loadWeather } = Api
 interface IWeatherStore {
   loading: boolean
   weatherTickets: Array<IWeather>
-  error: {
-    status: boolean,
-    message: string
-  } | null
   setLoading: (status: boolean) => void
   loadWeatherTicket: (cityName: string) => Promise<void>
   setWeatherTicket: ( weatherTicket: IWeather ) => void
@@ -25,7 +22,6 @@ const useWeatherTicketStore = create<IWeatherStore>()(
   devtools(
     persist((set, get) => ({
       loading: false as boolean,
-      error: null,
       weatherTickets: [],
       setLoading: (status) => set({ loading: status }),
       initTickets: async () => {
@@ -36,18 +32,7 @@ const useWeatherTicketStore = create<IWeatherStore>()(
       setWeatherTicket: (weatherTicket) => set((state) => ({ weatherTickets: [...state.weatherTickets, weatherTicket] })),
       removeWeatherTicket: (weatherTicketId) => set((state) => ({ weatherTickets: state.weatherTickets.filter((ticket) => ticket.id !== weatherTicketId) })),
       hasCity: (cityName) => get().weatherTickets.some((city) => city.name.toUpperCase() === cityName.toUpperCase()),
-      loadWeatherTicket: async (cityName) => {
-        set({ loading: true })
-        try {
-          const response = await loadWeather(cityName)
-    
-          get().setWeatherTicket(response)
-        } catch (error) {
-          console.error(error)
-        } finally {
-          set({ loading: false })
-        }
-      },
+      loadWeatherTicket: async (cityName) => loadWeather(cityName).then((response) => get().setWeatherTicket(response)),
     }), {
       name: "weather-ticket",
     })

@@ -13,7 +13,7 @@ interface IWeatherProps {
 
 const WeatherTicket: React.FC<IWeatherProps> = ({ ticket, onRemoveTicket }) => {
 
-  const handleRemoveTicket = (event) => {
+  const handleRemoveTicket = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault()
 
     onRemoveTicket(ticket.id)
