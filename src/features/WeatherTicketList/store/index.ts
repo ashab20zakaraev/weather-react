@@ -2,7 +2,6 @@
 import { create } from "zustand"
 import { devtools, persist } from "zustand/middleware"
 import type { IWeather } from "@/shared/types"
-import { AxiosError } from "axios"
 import { Api } from "@/shared"
 
 const { loadWeather } = Api
